@@ -1,16 +1,9 @@
 export interface DashboardItem {
-  theme: string;
-  themeIcon: string;
-  campaignTitle: string;
-  campaignType: string;
-  status: string;
-  impactedUsers: number;
-  color: string;
-  creationDate: Date;
-  sendDate: Date;
-  expandableData: Array<{
-    icon: string;
-    label: string;
-    value: string
-  }>;
+  uid: string;
+  country: string;
+  provinceState: string;
+  city: string;
+  d_2021_04_24: number;
+  d_2021_04_25: number;
+  d_2021_04_26: number;
 }
