@@ -23,15 +23,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxLoadingModule } from 'ngx-loading';
 import { HomeModule } from '../home.module';
-//import { DashboardBoxComponent } from './dashboard-box/dashboard-box.component';
+import { DashboardBoxComponent } from './dashboard-box/dashboard-box.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent/*,
-    DashboardBoxComponent*/
+    DashboardComponent,
+    DashboardBoxComponent
   ],
     imports: [
         CommonModule,
