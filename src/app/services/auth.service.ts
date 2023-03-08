@@ -9,12 +9,12 @@ export class AuthService {
 
   private _authenticatedUser: User = {
     active: true,
-    lastName: "Apellido",
-    secondLastName: "Apellido 2",
+    lastName: "Tejeda",
+    secondLastName: "Gutierrez",
     createDate: new Date(),
     id: 1,
-    secondName: "Nombre 2",
-    firstName: "Nombre"
+    secondName: "Josué",
+    firstName: "Manlio"
   };
 
   constructor(private http: HttpClient) {
