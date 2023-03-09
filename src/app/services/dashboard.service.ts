@@ -75,21 +75,20 @@ export class DashboardService {
 
   public getDashboardData(): DashboardItem[] {
     const rawData = JSON.parse(localStorage.getItem('rawData'))
-    console.log('jeje', rawData)
-    console.log('jeje', rawData[0])
     return rawData
   }
 
   public getMetricsByState() {
     const rawData = this.getDashboardData()
 
+    //calculate death to date by providence date
     const acumDeathsByStateDate = []
     rawData.forEach(row => {
       const provinceAccDate = {
         'provinceState': row.provinceState,
         'date': row.date,
-        'accDeath': row.deaths,
-        'population': row.population
+        'accDeath': row.deaths | 0,
+        'population': row.population | 0
       }
       const indexProvinceDate = acumDeathsByStateDate.findIndex(prov => prov.provinceState === row.provinceState && prov.date === row.date)
       if (indexProvinceDate === -1) {
@@ -100,10 +99,24 @@ export class DashboardService {
       }
     })
 
-    console.log(acumDeathsByStateDate)
-    console.log(acumDeathsByStateDate[0])
+    //sort array asc by death to date
+    acumDeathsByStateDate.sort((a, b) => a.accDeath - b.accDeath)
 
+    const minProviceDeath = acumDeathsByStateDate[0]
+    const maxProviceDeath = acumDeathsByStateDate[acumDeathsByStateDate.length - 1]
+
+    //sort array asc by %death
+    acumDeathsByStateDate.sort((a, b) => {
+      const div1 = !a.population || a.population === 0 ? 0 : (a.accDeath / a.population)
+      const div2 = !b.population || b.population === 0 ? 0 : (b.accDeath / b.population)
+      return div1 - div2
+    }
+    )
+
+    console.log({
+      minProviceDeath,
+      maxProviceDeath,
+      mostAfectedProvidence: acumDeathsByStateDate[acumDeathsByStateDate.length - 1]
+    })
   }
 }
-
-/* const currentAccum = acumDeathsByStateDate.find(prov => prov.provinceState === row.provinceState) */
