@@ -13,6 +13,7 @@ import { ToastService } from "../../services/toast.service";
 })
 export class DashboardComponent implements OnInit {
   public elements: DashboardItem[] = [];
+  public rawData: DashboardItem[] = [];
   public loading = false;
   public ngxLoadingAnimationTypes = {
     chasingDots: "chasing-dots",
@@ -31,21 +32,27 @@ export class DashboardComponent implements OnInit {
   constructor(
     private dashboardService: DashboardService,
     private toast: ToastService
-  ) {}
+  ) { }
 
 
   public ngOnInit() {
-    this.getData().then();
+    this.loading = true;
+    this.dashboardService.getNewDashboardData()
+      .then((res) => {
+        this.getData()
+        this.loading = false;
+      })
+
   }
 
   /**
    * getMetrics
    */
-  public async getData() {
+  public getData() {
     try {
-      this.loading = true;
-      this.elements = await this.dashboardService.getNewDashboardData();
-      this.loading = false;
+      this.rawData = this.dashboardService.getDashboardData();
+      this.elements = [...this.rawData]
+      this.dashboardService.getMetricsByState();
     } catch (e) {
       console.log(e);
       this.toast.error(
