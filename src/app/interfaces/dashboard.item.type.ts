@@ -4,5 +4,6 @@ export interface DashboardItem {
   provinceState: string;
   city: string;
   date: Date;
+  population: number;
   deaths: number;
 }

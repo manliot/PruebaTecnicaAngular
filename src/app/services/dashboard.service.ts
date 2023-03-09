@@ -28,26 +28,29 @@ export class DashboardService {
             const data: DashboardItem[] = res.data.map((item) =>
               [
                 {
-                  'uid': item.UID,
+                  'uid': `${item.UID}-2021-04-24}`,
                   'country': item.iso,
                   'provinceState': item.Province_State,
                   'city': item.Admin2,
+                  'population': item.Population,
                   'date': '2021-04-24',
                   'deaths': parseInt(item['4/24/21'])
                 },
                 {
-                  'uid': item.UID,
+                  'uid': `${item.UID}-2021-04-25}`,
                   'country': item.iso,
                   'provinceState': item.Province_State,
                   'city': item.Admin2,
+                  'population': item.Population,
                   'date': '2021-04-25',
                   'deaths': parseInt(item['4/25/21'])
                 },
                 {
-                  'uid': item.UID,
+                  'uid': `${item.UID}-2021-04-26}`,
                   'country': item.iso,
                   'provinceState': item.Province_State,
                   'city': item.Admin2,
+                  'population': item.Population,
                   'date': '2021-04-26',
                   'deaths': parseInt(item['4/26/21'])
                 }
