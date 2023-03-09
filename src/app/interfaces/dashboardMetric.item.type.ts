@@ -1,9 +1,10 @@
-import { DashboardItem } from "./dashboard.item.type";
+import { provinceMetrics } from "./provinceMetrics.type";
+
 
 
 export interface DashboardMetricItem {
-    minProviceDeath: DashboardItem;
-    maxProviceDeath: DashboardItem;
-    mostAfectedProvidence: DashboardItem;
+    minProviceDeath: provinceMetrics;
+    maxProviceDeath: provinceMetrics;
+    mostAfectedProvidence: provinceMetrics;
 
 }
