@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DashboardItem } from "../interfaces/dashboard.item.type";
 import { parse } from 'papaparse';
+import { DashboardMetricItem } from '../interfaces/dashboardMetric.item.type';
 
 
 
@@ -93,7 +94,7 @@ export class DashboardService {
     return rawData
   }
 
-  public getMetricsByState() {
+  public getMetricsByState(): DashboardMetricItem {
     const rawData = this.getDashboardData()
 
     //calculate death to date by providence date
