@@ -65,5 +65,14 @@ export class DashboardService {
       localStorage.setItem('rawData', JSON.stringify(rawData))
     }
   }
+
+  public updateDashboardData(newRawData: DashboardItem[]) {
+    localStorage.setItem('rawData', JSON.stringify(newRawData))
+  }
+
+  public getDashboardData(): DashboardItem[] {
+    const rawData = JSON.parse(localStorage.getItem('rawData'))
+    return rawData
+  }
 }
 
