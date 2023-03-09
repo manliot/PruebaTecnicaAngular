@@ -1,4 +1,5 @@
-$headerColor: rgba(20, 55, 109);
+$headerTableColor: rgba(20, 55, 109);
+$paginatorColor: rgba(201, 208, 218);
 
 .dashboard-table-container {
     margin: auto;
@@ -7,7 +8,7 @@ $headerColor: rgba(20, 55, 109);
     min-width: 900px;
 }
 
-.pointer:hover {
+.pointer :hover {
     cursor: pointer;
 }
 
@@ -17,7 +18,7 @@ $headerColor: rgba(20, 55, 109);
     min-width: 700px;
 
     .mat-header-cell {
-        background-color: $headerColor;
+        background-color: $headerTableColor;
         color: #fff;
         font-weight: bold;
         //padding: 0 20px 0 10px;
@@ -27,3 +28,8 @@ $headerColor: rgba(20, 55, 109);
         padding: 0 15px 0 5px;
     }
 }
+
+mat-paginator {
+    background-color: $paginatorColor;
+}
+

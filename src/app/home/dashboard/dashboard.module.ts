@@ -27,6 +27,7 @@ import { DashboardBoxComponent } from './dashboard-box/dashboard-box.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardTableComponent } from './dashboard-table/dashboard-table.component';
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 
 @NgModule({
@@ -35,32 +36,33 @@ import { DashboardTableComponent } from './dashboard-table/dashboard-table.compo
     DashboardBoxComponent,
     DashboardTableComponent
   ],
-    imports: [
-        CommonModule,
-        DashboardRoutingModule,
-        MatSidenavModule,
-        MatCardModule,
-        MatIconModule,
-        MatListModule,
-        MatExpansionModule,
-        MatSelectModule,
-        MatButtonModule,
-        FormsModule,
-        MatInputModule,
-        MatTabsModule,
-        MatStepperModule,
-        ReactiveFormsModule,
-        MatSlideToggleModule,
-        MatFormFieldModule,
-        HomeModule,
-        MatDatepickerModule,
-        MatTooltipModule,
-        MatRadioModule,
-        MatNativeDateModule,
-        MatTableModule,
-        MatSortModule,
-        NgxLoadingModule,
-        MatChipsModule
-    ]
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatIconModule,
+    MatListModule,
+    MatExpansionModule,
+    MatSelectModule,
+    MatButtonModule,
+    FormsModule,
+    MatInputModule,
+    MatTabsModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    HomeModule,
+    MatDatepickerModule,
+    MatTooltipModule,
+    MatRadioModule,
+    MatNativeDateModule,
+    MatTableModule,
+    MatSortModule,
+    NgxLoadingModule,
+    MatChipsModule,
+    MatPaginatorModule
+  ]
 })
 export class DashboardModule { }

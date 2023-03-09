@@ -1,4 +1,5 @@
 <div class="dashboard-table-container">
+    <mat-paginator class="dashboard-paginator-table" [pageSizeOptions]="[25,50,100]" showFirstLastButtons></mat-paginator>
     <table class="table" mat-table [dataSource]="rawData">
 
         <ng-container matColumnDef="Date">
@@ -34,8 +35,9 @@
             </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-header-row *matHeaderRowDef="columns;sticky:true"></tr>
         <tr mat-row *matRowDef="let row; columns: columns;"></tr>
 
     </table>
+
 </div>
