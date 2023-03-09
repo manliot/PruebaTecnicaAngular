@@ -11,7 +11,7 @@
     <br />
     <ngx-loading [show]="loading"
       [config]="{animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: 'rgb(255,255,255)', backdropBorderRadius: '3px'}"></ngx-loading>
-    <div class="metrics-container">
+    <div class="metrics-card-container">
       <app-dashboard-box [metricName]="'Provice With Highest Deaths to Date'"
         [metricValue]="maxProviceDeath.accDeath | number:'1.0'"
         [province]="maxProviceDeath.provinceState"></app-dashboard-box>
