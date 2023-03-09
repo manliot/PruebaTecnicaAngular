@@ -11,10 +11,7 @@
     <br />
     <ngx-loading [show]="loading"
       [config]="{animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: 'rgb(255,255,255)', backdropBorderRadius: '3px'}"></ngx-loading>
-    <div *ngFor="let data of elements">
-      <!-- <p>{{data.city}}</p> -->
-      <app-dashboard-box [data]="data" [mainRef]="this"></app-dashboard-box>
-    </div>
+    <app-dashboard-table [rawData]="elements"></app-dashboard-table>
     <br />
   </div>
 </div>

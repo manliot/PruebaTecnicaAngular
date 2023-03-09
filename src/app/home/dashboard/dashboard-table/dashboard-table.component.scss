@@ -1,0 +1,24 @@
+$headerColor: rgba(20, 55, 109);
+
+.dashboard-table-container {
+    width: 90%;
+    margin: auto;
+    padding: 0px;
+    margin-bottom: 25px;
+}
+
+.table {
+    width: 100%;
+    max-width: 1000px;
+    min-width: 700px;
+
+    .mat-header-cell {
+        background-color: $headerColor;
+        color: #fff;
+        font-weight: bold;
+        //padding: 0 20px 0 10px;
+    }
+    .mat-cell {
+        padding: 0 15px 0 5px;
+    }
+}
