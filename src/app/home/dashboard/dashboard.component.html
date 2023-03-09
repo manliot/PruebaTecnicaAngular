@@ -24,8 +24,12 @@
           [province]="mostAfectedProvidence.provinceState"></app-dashboard-box>
       </div>
     </section>
-
-    <app-dashboard-table [rawData]="elements"></app-dashboard-table>
+    <section class="table-section">
+      <h2>Details by City</h2>
+      <div class="table-container ScrollBar">
+        <app-dashboard-table [rawData]="elements"></app-dashboard-table>
+      </div>
+    </section>
     <br />
   </div>
 </div>
