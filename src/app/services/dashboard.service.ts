@@ -113,10 +113,10 @@ export class DashboardService {
     }
     )
 
-    console.log({
+    return {
       minProviceDeath,
       maxProviceDeath,
       mostAfectedProvidence: acumDeathsByStateDate[acumDeathsByStateDate.length - 1]
-    })
+    }
   }
 }
