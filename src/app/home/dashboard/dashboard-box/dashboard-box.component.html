@@ -1,8 +1,10 @@
 <div class="dashboard-box-container">
-    <mat-card class="card-style first-card"  (click)="changePanel()">
+    <mat-card class="card-style first-card" (click)="changePanel()">
         <div class="flex-col-container">
             <div class="campaign-type">
-              <p class="font1" [ngStyle]="{'color': '#9469AD'}">{{data.city}}</p>
+                <p class="font1" [ngStyle]="{'color': '#9469AD'}">{{metricName}}</p>
+                <p class="font1" [ngStyle]="{'color': '#9469AD'}">{{metricValue}}</p>
+                <p class="font1" [ngStyle]="{'color': '#9469AD'}">{{province}}</p>
                 <div class="icon-container">
                 </div>
             </div>

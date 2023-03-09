@@ -10,14 +10,15 @@ import { DashboardComponent } from "../dashboard.component";
 })
 export class DashboardBoxComponent implements OnInit {
   public expanded = false;
-  @Input() public data: DashboardItem[];
-  @Input() public mainRef: DashboardComponent;
+  @Input() public metricName: string = '';
+  @Input() public metricValue: number = 0;
+  @Input() public province: string = '';
+
   // must be changed for real data from dashboard component, does not make sense call a service from this component
   public fixedData: DashboardItem;
 
-  constructor(
-    private dashboardService: DashboardService) {
-    this.fixedData = this.dashboardService.getNewDashboardData()[0];
+  constructor() {
+
   }
 
   public ngOnInit(): void {
