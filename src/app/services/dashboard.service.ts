@@ -32,7 +32,7 @@ export class DashboardService {
                   'country': item.iso,
                   'provinceState': item.Province_State,
                   'city': item.Admin2,
-                  'population': item.Population,
+                  'population': parseInt(item.Population),
                   'date': '2021-04-24',
                   'deaths': parseInt(item['4/24/21'])
                 },
@@ -41,7 +41,7 @@ export class DashboardService {
                   'country': item.iso,
                   'provinceState': item.Province_State,
                   'city': item.Admin2,
-                  'population': item.Population,
+                  'population': parseInt(item.Population),
                   'date': '2021-04-25',
                   'deaths': parseInt(item['4/25/21'])
                 },
@@ -50,7 +50,7 @@ export class DashboardService {
                   'country': item.iso,
                   'provinceState': item.Province_State,
                   'city': item.Admin2,
-                  'population': item.Population,
+                  'population': parseInt(item.Population),
                   'date': '2021-04-26',
                   'deaths': parseInt(item['4/26/21'])
                 }
@@ -75,7 +75,35 @@ export class DashboardService {
 
   public getDashboardData(): DashboardItem[] {
     const rawData = JSON.parse(localStorage.getItem('rawData'))
+    console.log('jeje', rawData)
+    console.log('jeje', rawData[0])
     return rawData
+  }
+
+  public getMetricsByState() {
+    const rawData = this.getDashboardData()
+
+    const acumDeathsByStateDate = []
+    rawData.forEach(row => {
+      const provinceAccDate = {
+        'provinceState': row.provinceState,
+        'date': row.date,
+        'accDeath': row.deaths,
+        'population': row.population
+      }
+      const indexProvinceDate = acumDeathsByStateDate.findIndex(prov => prov.provinceState === row.provinceState && prov.date === row.date)
+      if (indexProvinceDate === -1) {
+        acumDeathsByStateDate.push(provinceAccDate)
+      } else {
+        acumDeathsByStateDate[indexProvinceDate].accDeath += row.deaths
+        acumDeathsByStateDate[indexProvinceDate].population += row.population
+      }
+    })
+
+    console.log(acumDeathsByStateDate)
+    console.log(acumDeathsByStateDate[0])
+
   }
 }
 
+/* const currentAccum = acumDeathsByStateDate.find(prov => prov.provinceState === row.provinceState) */
