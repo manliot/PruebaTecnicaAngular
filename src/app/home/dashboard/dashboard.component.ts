@@ -1,4 +1,6 @@
 import { Component, Injectable, OnInit } from "@angular/core";
+import { DashboardMetricItem } from "src/app/interfaces/dashboardMetric.item.type";
+import { provinceMetrics } from "src/app/interfaces/provinceMetrics.type";
 import { DashboardItem } from "../../interfaces/dashboard.item.type";
 import { DashboardService } from "../../services/dashboard.service";
 import { ToastService } from "../../services/toast.service";
@@ -15,6 +17,9 @@ export class DashboardComponent implements OnInit {
   public elements: DashboardItem[] = [];
   public rawData: DashboardItem[] = [];
   public loading = false;
+  public minProviceDeath: provinceMetrics;
+  public maxProviceDeath: provinceMetrics;
+  public mostAfectedProvidence: provinceMetrics;
   public ngxLoadingAnimationTypes = {
     chasingDots: "chasing-dots",
     circle: "sk-circle",
@@ -52,7 +57,10 @@ export class DashboardComponent implements OnInit {
     try {
       this.rawData = this.dashboardService.getDashboardData();
       this.elements = [...this.rawData]
-      this.dashboardService.getMetricsByState();
+      const { maxProviceDeath, minProviceDeath, mostAfectedProvidence } = this.dashboardService.getMetricsByState();
+      this.minProviceDeath = minProviceDeath
+      this.maxProviceDeath = maxProviceDeath
+      this.mostAfectedProvidence = mostAfectedProvidence
     } catch (e) {
       console.log(e);
       this.toast.error(
