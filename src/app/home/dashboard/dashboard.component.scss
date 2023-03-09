@@ -140,6 +140,9 @@
   padding: 0 10% 0 10%;
   display: flex;
   flex-direction: column;
+  max-width: 1244px;
+  width: 100%;
+  margin: 0 auto 0 auto;
 }
 
 @media screen and (min-width: 1025px) {
@@ -149,5 +152,9 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
+  }
+
+  .metrics-section {
+    display: flex;
   }
 }

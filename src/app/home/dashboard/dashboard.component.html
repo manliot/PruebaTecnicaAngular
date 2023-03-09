@@ -11,17 +11,19 @@
     <br />
     <ngx-loading [show]="loading"
       [config]="{animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: 'rgb(255,255,255)', backdropBorderRadius: '3px'}"></ngx-loading>
-    <div class="metrics-card-container">
-      <app-dashboard-box [metricName]="'Provice With Highest Deaths to Date'"
-        [metricValue]="maxProviceDeath.accDeath | number:'1.0'"
-        [province]="maxProviceDeath.provinceState"></app-dashboard-box>
-      <app-dashboard-box [metricName]="'Provice With Lowest Deaths to Date'"
-        [metricValue]="minProviceDeath.accDeath | number:'1.0'"
-        [province]="minProviceDeath.provinceState"></app-dashboard-box>
-      <app-dashboard-box [metricName]="'Most Affected province (%deaths)'"
-        [metricValue]="((mostAfectedProvidence.accDeath/mostAfectedProvidence.population)*100).toFixed(2) + '%'"
-        [province]="mostAfectedProvidence.provinceState"></app-dashboard-box>
-    </div>
+    <section class="metrics-section">
+      <div class="metrics-card-container">
+        <app-dashboard-box [metricName]="'Provice With Highest Deaths to Date'"
+          [metricValue]="maxProviceDeath.accDeath | number:'1.0'"
+          [province]="maxProviceDeath.provinceState"></app-dashboard-box>
+        <app-dashboard-box [metricName]="'Provice With Lowest Deaths to Date'"
+          [metricValue]="minProviceDeath.accDeath | number:'1.0'"
+          [province]="minProviceDeath.provinceState"></app-dashboard-box>
+        <app-dashboard-box [metricName]="'Most Affected province (%deaths)'"
+          [metricValue]="((mostAfectedProvidence.accDeath/mostAfectedProvidence.population)*100).toFixed(2) + '%'"
+          [province]="mostAfectedProvidence.provinceState"></app-dashboard-box>
+      </div>
+    </section>
 
     <app-dashboard-table [rawData]="elements"></app-dashboard-table>
     <br />
