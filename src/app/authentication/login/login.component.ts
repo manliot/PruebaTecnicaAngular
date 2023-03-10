@@ -98,12 +98,22 @@ export class LoginComponent implements OnInit {
         const password = this.form.value["password"];
         localStorage.setItem("RememberMe", this.rememberUser ? "true" : "false");
         // validate credentials
+        const response = this.authService.AuthUser({ user, password })
+        if (response.state === 'success') {
+          this.toastService.success(
+            "Bienvenido '" + this.authService.getNames({ firstName: true, lastName: true }) + "'",
+            "Exito"
+          )
+          this.router.navigateByUrl("/home/dashboard");
+        } else {
+          console.log(e);
+          this.toastService.error(
+            "Revise sus credenciales e intente de nuevo",
+            "Error"
+          );
+          this.loginInProgress = false;
+        }
         //
-        this.toastService.success(
-          "Bienvenido '" + this.authService.getNames({firstName: true, lastName: true}) + "'",
-          "Exito"
-        );
-        this.router.navigateByUrl("/home/dashboard");
       }
     } catch (e) {
       console.log(e);

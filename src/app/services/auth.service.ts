@@ -14,32 +14,46 @@ export class AuthService {
     createDate: new Date(),
     id: 1,
     secondName: "Josué",
-    firstName: "Manlio"
+    firstName: "Manlio",
+    user: 'manliot',
+    password: '1234'
   };
 
   constructor(private http: HttpClient) {
   }
 
-  public getNames(names: {firstName?: boolean, secondName?: boolean, lastName?: boolean, secondLastName?: boolean}){
+  public getNames(names: { firstName?: boolean, secondName?: boolean, lastName?: boolean, secondLastName?: boolean, password?: string }) {
     // tslint:disable-next-line:prefer-const
     let output = [];
-    if(names.firstName){
+    if (names.firstName) {
       output.push(AuthService.validateName(this._authenticatedUser.firstName));
     }
-    if(names.secondName){
+    if (names.secondName) {
       output.push(AuthService.validateName(this._authenticatedUser.secondName));
     }
-    if(names.lastName){
+    if (names.lastName) {
       output.push(AuthService.validateName(this._authenticatedUser.lastName));
     }
-    if(names.secondLastName){
+    if (names.secondLastName) {
       output.push(AuthService.validateName(this._authenticatedUser.secondLastName));
+    }
+    if (names.password) {
+      output.push(names.password);
     }
     return output.join(" ");
   }
 
-  private static validateName(name: string){
-    if(!name || name === "null" || name === "undefined"){
+  public AuthUser(credentials: { user?: string, password?: string }) {
+    if (credentials.user === this._authenticatedUser.user && credentials.password === this._authenticatedUser.password) {
+      return { message: 'Valid Credentials', state: 'success' }
+    } else {
+      return { message: 'Not Valid Credentials', state: 'error' }
+
+    }
+  }
+
+  private static validateName(name: string) {
+    if (!name || name === "null" || name === "undefined") {
       return "";
     }
     return name;
