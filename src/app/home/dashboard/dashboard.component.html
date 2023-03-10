@@ -29,7 +29,7 @@
       <section class="table-section">
         <div class="table-section-container">
           <h2 class="section-title">Details by City</h2>
-          <button (click)="openAddForm()">Add Data {{showAddForm}}</button>
+          <button class="add-form-button" (click)="openAddForm()">Add Data</button>
           <div class="table-container ScrollBar">
             <app-dashboard-table [rawData]="elements" [showUpdateForm]="showUpdateForm"></app-dashboard-table>
           </div>
