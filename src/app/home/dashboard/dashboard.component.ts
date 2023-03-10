@@ -50,13 +50,11 @@ export class DashboardComponent implements OnInit {
       .then((res) => {
         this.getData()
         this.loading = false;
-        console.log('fuera')
       })
 
   }
   public openAddForm() {
     this.showAddForm = true;
-    console.log('open')
   }
   public closeAddForm() {
     this.showAddForm = false;
@@ -65,7 +63,6 @@ export class DashboardComponent implements OnInit {
    * getMetrics
    */
   public newElement(event: any) {
-    console.log('nuevo elemento', event)
     this.loading = true;
     if (event) {
       const rawDataUpdate = [...this.rawData]
@@ -74,6 +71,7 @@ export class DashboardComponent implements OnInit {
       this.getData()
       this.loading = false;
     }
+    this.closeAddForm()
   }
   public getData() {
     try {
@@ -84,7 +82,6 @@ export class DashboardComponent implements OnInit {
       this.maxProviceDeath = maxProviceDeath
       this.mostAfectedProvidence = mostAfectedProvidence
       this.cities = this.dashboardService.getCitiesInfo();
-      console.log('hey: ', this.cities)
     } catch (e) {
       console.log(e);
       this.toast.error(

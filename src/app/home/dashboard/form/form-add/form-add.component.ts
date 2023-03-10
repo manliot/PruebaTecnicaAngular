@@ -24,7 +24,6 @@ export class FormAddComponent implements OnInit {
     accDeath: new FormControl('', Validators.required)
   })
   ngOnInit(): void {
-    console.log('caa', this.citiesArr)
   }
 
   emitCloseAddForm() {
@@ -32,20 +31,49 @@ export class FormAddComponent implements OnInit {
   }
 
   emitNewElement() {
-    const raw_data = this.dashboardService.getDashboardData()
     const { date, city, accDeath } = this.addForm.value
-    console.log(city)
-    const newElement = {
-      'uid': `${city}-${date}`,
-      'country': city.country,
-      'provinceState': city.provinceState,
-      'city': city.city,
-      'date': date,
-      'population': city.population,
-      'deaths': accDeath
+    const cityInfo = this.citiesArr.find(elem => elem.city == city)
+
+    if (cityInfo) {
+      const raw_data = this.dashboardService.getDashboardData().filter(elem => elem.city === cityInfo.city)
+      const maxAcumDeath = raw_data.reduce((max, elem) => Math.max(max, elem.deaths), 0)
+      if (maxAcumDeath < accDeath) {
+        const newElement = {
+          'uid': `${cityInfo.city}-${date}`,
+          'country': cityInfo.country,
+          'provinceState': cityInfo.provinceState,
+          'city': cityInfo.city,
+          'date': date,
+          'population': cityInfo.population,
+          'deaths': accDeath
+        }
+        if (raw_data.findIndex(elem => elem.city == city && elem.date == date) === -1) {
+          this.toast.success(
+            "Data Added",
+            "Success"
+          );
+          this.newElement.emit(newElement)
+          console.log(newElement)
+        } else {
+          this.toast.error(
+            "The data of this city and data exist",
+            "Error"
+          );
+        }
+
+      } else {
+        this.toast.error(
+          "Death to Date must be grather or equal to the past data",
+          "Error"
+        );
+      }
     }
-    this.newElement.emit(null)
-    //this.newElement.emit(newElement)
+    else {
+      this.toast.error(
+        "City not found",
+        "Error"
+      );
+    }
   }
 
 }
