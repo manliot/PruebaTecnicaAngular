@@ -20,6 +20,10 @@ export class DashboardComponent implements OnInit {
   public minProviceDeath: provinceMetrics;
   public maxProviceDeath: provinceMetrics;
   public mostAfectedProvidence: provinceMetrics;
+  public showUpdateForm: boolean = false;
+  public showAddForm: boolean = false;
+  public cities: any[] = [];
+
   public ngxLoadingAnimationTypes = {
     chasingDots: "chasing-dots",
     circle: "sk-circle",
@@ -46,13 +50,31 @@ export class DashboardComponent implements OnInit {
       .then((res) => {
         this.getData()
         this.loading = false;
+        console.log('fuera')
       })
 
   }
-
+  public openAddForm() {
+    this.showAddForm = true;
+    console.log('open')
+  }
+  public closeAddForm() {
+    this.showAddForm = false;
+  }
   /**
    * getMetrics
    */
+  public newElement(event: any) {
+    console.log('nuevo elemento', event)
+    this.loading = true;
+    if (event) {
+      const rawDataUpdate = [...this.rawData]
+      rawDataUpdate.push(event)
+      this.dashboardService.updateDashboardData(rawDataUpdate)
+      this.getData()
+      this.loading = false;
+    }
+  }
   public getData() {
     try {
       this.rawData = this.dashboardService.getDashboardData();
@@ -61,6 +83,8 @@ export class DashboardComponent implements OnInit {
       this.minProviceDeath = minProviceDeath
       this.maxProviceDeath = maxProviceDeath
       this.mostAfectedProvidence = mostAfectedProvidence
+      this.cities = this.dashboardService.getCitiesInfo();
+      console.log('hey: ', this.cities)
     } catch (e) {
       console.log(e);
       this.toast.error(

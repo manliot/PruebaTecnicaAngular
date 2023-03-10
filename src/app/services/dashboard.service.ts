@@ -135,6 +135,7 @@ export class DashboardService {
       mostAfectedProvidence: acumDeathsByStateDate[acumDeathsByStateDate.length - 1]
     }
   }
+
   public editDeathsValue(uid, newDeath) {
     const rawData = [...this.getDashboardData()]
     const index = rawData.findIndex(elem => elem.uid === uid)
@@ -151,5 +152,25 @@ export class DashboardService {
       console.log('no exite')
     }
 
+  }
+
+  public getCitiesInfo(): any[] {
+    const rawData = this.getDashboardData()
+    const cities = []
+    rawData.forEach(row => {
+      const city = {
+        'country': row.country,
+        'provinceState': row.provinceState,
+        'city': row.city,
+        'population': row.population
+      }
+
+      const indexProvinceDate = cities.findIndex(prov => prov.city === row.city)
+      if (indexProvinceDate === -1) {
+        cities.push(city)
+      }
+    })
+
+    return cities
   }
 }

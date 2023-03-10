@@ -28,13 +28,17 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardTableComponent } from './dashboard-table/dashboard-table.component';
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { FormUpdateComponent } from './form/form-update/form-update.component';
+import { FormAddComponent } from './form/form-add/form-add.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DashboardBoxComponent,
-    DashboardTableComponent
+    DashboardTableComponent,
+    FormUpdateComponent,
+    FormAddComponent
   ],
   imports: [
     CommonModule,
@@ -62,7 +66,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatSortModule,
     NgxLoadingModule,
     MatChipsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

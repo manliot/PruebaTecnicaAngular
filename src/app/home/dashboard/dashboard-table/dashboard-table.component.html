@@ -31,7 +31,7 @@
 
         <ng-container matColumnDef="Edit">
             <th mat-header-cell *matHeaderCellDef> Edit </th>
-            <td mat-cell class="pointer" *matCellDef="let element">
+            <td mat-cell class="pointer" *matCellDef="let element" (click)="openUpdateForm($event)">
                 <mat-icon [ngStyle]="{'fill': 'transparent','color': '#14376d'}">edit</mat-icon>
             </td>
         </ng-container>

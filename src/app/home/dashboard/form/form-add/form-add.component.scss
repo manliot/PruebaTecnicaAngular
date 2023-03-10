@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+.add-form-overlay {
+    background-color: #00000052;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-form-container {
+    width: 400px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    background-image: linear-gradient(to right, rgba(102, 153, 255, 0), rgba(255, 255, 255, 0.25));
+    background-color: rgba(20, 55, 109);
+    border: rgb(57, 127, 204) solid 1px;
+    border-radius: 13px;
+}
+
+.form-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 18pt;
+    margin-bottom: 5px;
+}
+
+.add-form-header {
+    display: flex;
+}

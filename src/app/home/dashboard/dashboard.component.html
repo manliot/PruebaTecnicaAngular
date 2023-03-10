@@ -8,31 +8,37 @@
   </div>
   <!-- Showing dashboard with information -->
   <div class="ScrollBar dashboard-box-wrapper">
+
     <br />
     <ngx-loading [show]="loading"
       [config]="{animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: 'rgb(255,255,255)', backdropBorderRadius: '3px'}"></ngx-loading>
-    <section class="metrics-section">
-      <div class="metrics-card-container">
-        <app-dashboard-box [metricName]="'Provice With Highest Deaths to Date'"
-          [metricValue]="maxProviceDeath.accDeath | number:'1.0'"
-          [province]="maxProviceDeath.provinceState"></app-dashboard-box>
-        <app-dashboard-box [metricName]="'Provice With Lowest Deaths to Date'"
-          [metricValue]="minProviceDeath.accDeath | number:'1.0'"
-          [province]="minProviceDeath.provinceState"></app-dashboard-box>
-        <app-dashboard-box [metricName]="'Most Affected province (%deaths)'"
-          [metricValue]="((mostAfectedProvidence.accDeath/mostAfectedProvidence.population)*100).toFixed(2) + '%'"
-          [province]="mostAfectedProvidence.provinceState"></app-dashboard-box>
-      </div>
-    </section>
-    <section class="table-section">
-      <div class="table-section-container">
-        <h2 class="section-title">Details by City</h2>
-        <button>Add New data</button>
-        <div class="table-container ScrollBar">
-          <app-dashboard-table [rawData]="elements"></app-dashboard-table>
+    <div *ngIf="!loading">
+      <section class="metrics-section">
+        <div class="metrics-card-container">
+          <app-dashboard-box [metricName]="'Provice With Highest Deaths to Date'"
+            [metricValue]="maxProviceDeath.accDeath | number:'1.0'"
+            [province]="maxProviceDeath.provinceState"></app-dashboard-box>
+          <app-dashboard-box [metricName]="'Provice With Lowest Deaths to Date'"
+            [metricValue]="minProviceDeath.accDeath | number:'1.0'"
+            [province]="minProviceDeath.provinceState"></app-dashboard-box>
+          <app-dashboard-box [metricName]="'Most Affected province (%deaths)'"
+            [metricValue]="((mostAfectedProvidence.accDeath/mostAfectedProvidence.population)*100).toFixed(2) + '%'"
+            [province]="mostAfectedProvidence.provinceState"></app-dashboard-box>
         </div>
-      </div>
-    </section>
+      </section>
+      <section class="table-section">
+        <div class="table-section-container">
+          <h2 class="section-title">Details by City</h2>
+          <button (click)="openAddForm()">Add Data {{showAddForm}}</button>
+          <div class="table-container ScrollBar">
+            <app-dashboard-table [rawData]="elements" [showUpdateForm]="showUpdateForm"></app-dashboard-table>
+          </div>
+        </div>
+      </section>
+    </div>
     <br />
   </div>
+</div>
+<div *ngIf="showAddForm">
+  <app-form-add (closeAddForm)="closeAddForm()" (newElement)="newElement($event)" [citiesArr]="cities"></app-form-add>
 </div>

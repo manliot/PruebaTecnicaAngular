@@ -1,0 +1,33 @@
+<div class="add-form-overlay">
+    <div class="add-form-container">
+        <div class="add-form-header">
+            <h3 class="form-title">Add Data </h3> <!-- se lo pasa el padre -->
+            <button (click)="emitCloseAddForm()">
+                <mat-icon [ngStyle]="{'fill': 'transparent','color': '#14376d'}">close</mat-icon>
+            </button>
+        </div>
+        <div class="add-form-body">
+            <form [formGroup]="addForm" (ngSubmit)="emitNewElement()">
+                <div>
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" formControlName="date">
+                </div>
+                <div>
+
+                    <label for="city">City</label>
+                    <select id="city" name="city" formControlName="city">
+                        <option *ngFor="let city of citiesArr" value={{city}}>{{city.city}}
+                        </option>
+                    </select>
+                </div>
+                <div>
+
+                    <label for="accDeath">Death to Date</label>
+                    <input type="number" id="accDeath" name="accDeath" formControlName="accDeath">
+                </div>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>
