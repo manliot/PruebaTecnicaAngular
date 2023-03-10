@@ -15,15 +15,15 @@
 }
 
 .add-form-container {
-    width: 400px;
-    padding: 25px;
+    width: 300px;
+    padding: 15px 25px 45px 25px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: 450px;
+    /* height: 450px; */
     background-image: linear-gradient(to right, rgba(102, 153, 255, 0), rgba(255, 255, 255, 0.25));
-    background-color: rgba(20, 55, 109);
-    border: rgb(57, 127, 204) solid 1px;
+    background-color: #14376d;
+    border: #397fcc solid 1px;
     border-radius: 13px;
 }
 
@@ -35,5 +35,53 @@
 }
 
 .add-form-header {
+    text-align: center;
+
+    h3 {
+        margin: 0;
+    }
+}
+
+.add-form-body {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.formItem {
     display: flex;
+    flex-direction: column;
+
+    input,
+    select {
+        height: 40px;
+        width: 100%;
+        padding: 11px;
+        background-color: #ffffffbd;
+        margin-bottom: 16px;
+        border: none;
+    }
+
+
+
+}
+
+.form-footer {
+    direction: rtl;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+
+    button {
+        width: 100px;
+        height: 29px;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+    }
+}
+
+.form-footer:first-child{
+    margin-left: 10px;
 }

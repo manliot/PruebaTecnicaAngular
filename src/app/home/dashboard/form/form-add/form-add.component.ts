@@ -34,7 +34,7 @@ export class FormAddComponent implements OnInit {
   emitNewElement() {
     const raw_data = this.dashboardService.getDashboardData()
     const { date, city, accDeath } = this.addForm.value
-
+    console.log(city)
     const newElement = {
       'uid': `${city}-${date}`,
       'country': city.country,
@@ -44,7 +44,8 @@ export class FormAddComponent implements OnInit {
       'population': city.population,
       'deaths': accDeath
     }
-    this.newElement.emit(newElement)
+    this.newElement.emit(null)
+    //this.newElement.emit(newElement)
   }
 
 }
