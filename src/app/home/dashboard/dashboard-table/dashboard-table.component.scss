@@ -6,6 +6,7 @@ $paginatorColor: rgba(201, 208, 218);
     padding: 0px;
     margin-bottom: 25px;
     min-width: 900px;
+    max-width: 1000px;
 }
 
 .pointer :hover {
@@ -32,4 +33,3 @@ $paginatorColor: rgba(201, 208, 218);
 mat-paginator {
     background-color: $paginatorColor;
 }
-

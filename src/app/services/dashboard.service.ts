@@ -135,4 +135,21 @@ export class DashboardService {
       mostAfectedProvidence: acumDeathsByStateDate[acumDeathsByStateDate.length - 1]
     }
   }
+  public editDeathsValue(uid, newDeath) {
+    const rawData = [...this.getDashboardData()]
+    const index = rawData.findIndex(elem => elem.uid === uid)
+    const element = rawData[index]
+    if (element) {
+      if (element.deaths <= newDeath) {
+        element.deaths = newDeath
+        rawData[index] = element
+        this.updateDashboardData(rawData)
+      } else {
+        console.log('Debe ser mayor o igual')
+      }
+    } else {
+      console.log('no exite')
+    }
+
+  }
 }
