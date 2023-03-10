@@ -106,7 +106,6 @@ export class LoginComponent implements OnInit {
           )
           this.router.navigateByUrl("/home/dashboard");
         } else {
-          console.log(e);
           this.toastService.error(
             "Revise sus credenciales e intente de nuevo",
             "Error"
