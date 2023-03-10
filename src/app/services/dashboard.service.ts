@@ -27,7 +27,7 @@ export class DashboardService {
             [
               {
                 'uid': `${item.UID}-2021-04-24}`,
-                'country': item.iso,
+                'country': item.iso3,
                 'provinceState': item.Province_State,
                 'city': item.Admin2,
                 'population': parseInt(item.Population),
@@ -36,7 +36,7 @@ export class DashboardService {
               },
               {
                 'uid': `${item.UID}-2021-04-25}`,
-                'country': item.iso,
+                'country': item.iso3,
                 'provinceState': item.Province_State,
                 'city': item.Admin2,
                 'population': parseInt(item.Population),
@@ -45,7 +45,7 @@ export class DashboardService {
               },
               {
                 'uid': `${item.UID}-2021-04-26}`,
-                'country': item.iso,
+                'country': item.iso3,
                 'provinceState': item.Province_State,
                 'city': item.Admin2,
                 'population': parseInt(item.Population),
