@@ -28,17 +28,13 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardTableComponent } from './dashboard-table/dashboard-table.component';
 import { MatPaginatorModule } from "@angular/material/paginator";
-import { AddFormComponent } from './forms/add-form/add-form.component';
-import { UpdateFormComponent } from './forms/update-form/update-form.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DashboardBoxComponent,
-    DashboardTableComponent,
-    AddFormComponent,
-    UpdateFormComponent
+    DashboardTableComponent
   ],
   imports: [
     CommonModule,
