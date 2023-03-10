@@ -27,12 +27,12 @@
         </div>
       </section>
       <section class="table-section">
-        <div class="table-section-container">
+        <div class="table-section-header">
           <h2 class="section-title">Details by City</h2>
           <button class="add-form-button" (click)="openAddForm()">Add Data</button>
-          <div class="table-container ScrollBar">
-            <app-dashboard-table [rawData]="elements" [showUpdateForm]="showUpdateForm"></app-dashboard-table>
-          </div>
+        </div>
+        <div class="table-container ScrollBar">
+          <app-dashboard-table [rawData]="elements" [showUpdateForm]="showUpdateForm"></app-dashboard-table>
         </div>
       </section>
     </div>

@@ -31,6 +31,7 @@
   background-image: url('/assets/Dashboard/fondoDashboard@PYP.png');
   z-index: -1;
   margin-left: -3px;
+  overflow-x: hidden;
 }
 
 .metrics-card-container {
@@ -43,17 +44,16 @@
 }
 
 .table-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  padding: 0 5% 0 5%;
 
 }
 
-.table-section-container {
+.table-section-header {
   padding: 0 5% 0 5%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   max-width: 1050px;
+  width: 100%;
 }
 
 .section-title {
@@ -91,6 +91,7 @@
 
   .metrics-section {
     display: flex;
+    padding: 30px 15px 0px 15px;
   }
 
   .add-form-button {
